@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+venv/
+.scrapy/
+english_post_spider/spiders/__pycache__/
+english_post_spider/__pycache__/
