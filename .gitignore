@@ -4,3 +4,4 @@ venv/
 .scrapy/
 english_book_spider/spiders/__pycache__/
 english_book_spider/__pycache__/
+/spider.log

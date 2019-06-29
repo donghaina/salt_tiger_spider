@@ -10,7 +10,7 @@ from english_book_spider.models import EnglishBook
 
 class EnglishBookSpider(scrapy.Spider):
     name = 'english_book_spider'
-    start_urls = ['https://salttiger.com/?s=javascript']
+    start_urls = ['https://salttiger.com/?s=python']
     start_page = 1
     book_pipeline = EnglishBookSpiderPipeline()
 
