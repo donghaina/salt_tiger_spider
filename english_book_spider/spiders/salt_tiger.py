@@ -10,12 +10,14 @@ from english_book_spider.models import EnglishBook
 
 class EnglishBookSpider(scrapy.Spider):
     name = 'english_book_spider'
-    start_urls = ['https://salttiger.com/?s=python']
-    start_page = 1
     book_pipeline = EnglishBookSpiderPipeline()
 
     def start_requests(self):
-        return [scrapy.FormRequest(url=self.start_urls[0], dont_filter=False, callback=self.parse)]
+        tag = getattr(self, 'tag', None)
+        url = 'https://salttiger.com'
+        if tag is not None:
+            url = url + '/?s=' + tag
+        yield scrapy.FormRequest(url=url, dont_filter=True, callback=self.parse)
 
     # 获取列表
     def parse(self, response):
@@ -23,7 +25,7 @@ class EnglishBookSpider(scrapy.Spider):
         for info_item in news_list:
             book_item = EnglishBookSpiderItem()
             book_item['origin_url'] = info_item.xpath("a/@href").extract_first()
-            repetition = self.book_pipeline.session.query(EnglishBook).filter_by(origin_url=book_item['origin_url']).first()    
+            repetition = self.book_pipeline.session.query(EnglishBook).filter_by(origin_url=book_item['origin_url']).first()
             if repetition:
                 continue
             book_item['title'] = info_item.xpath("a/text()").extract_first()
