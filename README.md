@@ -9,6 +9,11 @@ git clone https://github.com/donghaina/salt_tiger_spider
 ```shell
 pip install -r requirements.txt
 ```
+### 创建数据库和表
+```shell
+create database book
+source book.sql
+```
 
 ### 爬取全部电子书
 ```shell
