@@ -8,7 +8,7 @@
 import scrapy
 
 
-class NewsSpiderItem(scrapy.Item):
+class EnglishBookSpiderItem(scrapy.Item):
     title = scrapy.Field()
     origin_url = scrapy.Field()
     pan_code = scrapy.Field()

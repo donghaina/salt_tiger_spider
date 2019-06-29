@@ -4,7 +4,7 @@ from scrapy.conf import settings
 import pymysql
 
 
-class NewsSpiderPipeline(object):
+class EnglishBookSpiderPipeline(object):
     # 用于数据库存储
     def __init__(self):
         # 连接数据库

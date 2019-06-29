@@ -2,5 +2,5 @@
 .idea/
 venv/
 .scrapy/
-english_post_spider/spiders/__pycache__/
-english_post_spider/__pycache__/
+english_book_spider/spiders/__pycache__/
+english_book_spider/__pycache__/
